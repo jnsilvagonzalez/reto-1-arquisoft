@@ -23,7 +23,7 @@ func NewEmergencyReceive(dependencies *container.DependenciesContainer) Emergenc
 func (er *emergencyReceive) EmergencyReceive(reqDto *model.ReqPostReceiveSignal) *model.ResPostReceiveSignal {
 
 	response, err := (er.dependencies.BrokerRepository.(repositories.BrokerRepository)).
-		PublishMessage(reqDto, true)
+		PublishMessage(reqDto, false)
 
 	if err != nil {
 		return &model.ResPostReceiveSignal{

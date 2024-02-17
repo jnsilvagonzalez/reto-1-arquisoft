@@ -43,7 +43,6 @@ func (s *SNSRepositoryImpl) PublishMessage(signal *model.ReqPostReceiveSignal, e
 	if emergency {
 		topic = "arn:aws:sns:us-east-1:992382691015:emergency"
 	} else {
-
 		topic = "arn:aws:sns:us-east-1:992382691015:signals"
 	}
 

@@ -11,8 +11,8 @@ import (
 )
 
 const (
-	URLReceiveEmergency = "/receiver/v1/api/emergency"
-	URLReceiveSignal    = "/receiver/v1/api/signal"
+	URLReceiveEmergency = "/api/emergency"
+	URLReceiveSignal    = "/api/signal"
 	PostOperation       = "POST"
 )
 
@@ -41,7 +41,7 @@ func MakeHTTPHandler(dependencies *container.DependenciesContainer) http.Handler
 	))
 
 	r.Methods(PostOperation).Path(URLReceiveSignal).Handler(kithttp.NewServer(
-		e.ReceiveEmergencyEndpoint(dependencies),
+		e.ReceiveSignalEndpoint(dependencies),
 		receivesignal.DecodeRequest,
 		receivesignal.EncodeResponse,
 		serverOptions...,
