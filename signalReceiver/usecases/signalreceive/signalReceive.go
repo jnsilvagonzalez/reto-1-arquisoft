@@ -22,7 +22,7 @@ func NewSignalReceive(dependencies *container.DependenciesContainer) SignalRecei
 
 func (s signalReceive) SignalReceive(reqDto *model.ReqPostReceiveSignal) *model.ResPostReceiveSignal {
 	response, err := (s.dependencies.BrokerRepository.(repositories.BrokerRepository)).
-		PublishMessage(reqDto, true)
+		PublishMessage(reqDto, false)
 
 	if err != nil {
 		return &model.ResPostReceiveSignal{
