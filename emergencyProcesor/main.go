@@ -88,6 +88,8 @@ func HandleRequest(ctx context.Context, snsEvent events.SNSEvent) {
 					},
 				},
 			},
+
+			ProjectionExpression: aws.String("Actions"),
 		}
 
 		resp, err := svc.QueryWithContext(ctx, params)
